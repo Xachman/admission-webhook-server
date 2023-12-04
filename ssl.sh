@@ -21,4 +21,5 @@ cat ca.crt >> server.pem
 openssl genrsa -out tls.key 2048
 # Generate a Certificate Signing Request (CSR) for the private key, and sign it with the private key of the CA.
 openssl req -new -days $expiration -key tls.key -subj "/CN=$cn" \
-    | openssl x509 -days $expiration -req -CA ca.crt -CAkey ca.key -CAcreateserial -out tls.crt
+    | openssl x509 -days $expiration -req -extfile <(printf "subjectAltName=DNS:$cn") \
+      -CA ca.crt -CAkey ca.key -CAcreateserial -out tls.crt
