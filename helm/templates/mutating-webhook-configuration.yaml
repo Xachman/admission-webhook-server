@@ -1,12 +1,14 @@
 ---
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration 
 metadata:
   name: {{ template "helper.fullname" . }}
   labels:
 {{- include "helper.labels" . | indent 4 }}
 webhooks:
-- name: {{ template "helper.webhook-server-name" . }} 
+- name: {{ template "helper.webhook-server-name" . }}
+  sideEffects: None
+  admissionReviewVersions: ["v1beta1"]
   clientConfig: 
     service:
       namespace: {{ .Release.Namespace }}
