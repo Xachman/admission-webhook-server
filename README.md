@@ -26,7 +26,7 @@ Note: below example using Helm v3. However the chart is compatible with helm ver
 $ git clone https://github.com/liangrog/admission-webhook-server
 $ cd admission-webhook-server
 $
-$ sh ssl.sh admission-webhook.tools.svc
+$ bash ssl.sh admission-webhook.tools.svc
 $
 $ cd helm
 $ helm install admission-webhook-server .
