@@ -22,7 +22,7 @@ service:
   #type: 
   annotations: {}
 
-replicas: 1  
+replicas: 3 
 
 strategy: 
   type: RollingUpdate
@@ -30,3 +30,4 @@ strategy:
 image: liangrog/admission-webhook-server
 imageTag: latest
 imagePullPolicy: Always 
+ignoreNamespaces: ["tools"]

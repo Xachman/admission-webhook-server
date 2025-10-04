@@ -24,3 +24,8 @@ webhooks:
     - "*"
     resources:
     - pods
+  namespaceSelector:
+    matchExpressions:
+      - key: kubernetes.io/metadata.name
+        operator: NotIn
+        values: '{{.Values.ignoreNamespaces}}'
