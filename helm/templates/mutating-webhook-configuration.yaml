@@ -28,4 +28,4 @@ webhooks:
     matchExpressions:
       - key: kubernetes.io/metadata.name
         operator: NotIn
-        values: '{{.Values.ignoreNamespaces}}'
+        values: {{.Values.ignoreNamespaces}}
